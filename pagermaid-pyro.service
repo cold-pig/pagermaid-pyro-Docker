@@ -1,0 +1,12 @@
+[Unit]
+Description=PagerMaid-Pyro telegram utility daemon
+After=network.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/pagermaid_pyro
+ExecStart=/usr/bin/python3 -m pagermaid
+Restart=always
