@@ -2,6 +2,10 @@
 
 PagerMaid-Pyro 是一个开源的 Telegram 人形自走 Bot 方案，功能强大而丰富，可以帮助你打造专属的便利功能。
 
+[![Push Docker images](https://github.com/cold-pig/pagermaid-pyro-Docker/actions/workflows/update-docker.yaml/badge.svg)](https://github.com/cold-pig/pagermaid-pyro-Docker/actions/workflows/update-docker.yaml)
+
+每天自动拉取最新代码构建 Docker 镜像。
+
 ## 版本：
 
 | 名称                   | 版本   | 说明  |
