@@ -13,6 +13,7 @@ RUN echo "Start Installing..." \
         curl \
         screen \
         vim \
+        cron \
         imagemagick \
         neofetch \
         libwebp-dev \
