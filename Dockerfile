@@ -1,5 +1,8 @@
 FROM ubuntu:22.04
 
+# 设置非交互模式
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN mkdir -p /root/pagermaid_pyro
 ENV MYPATH /root/pagermaid_pyro
 WORKDIR $MYPATH
@@ -36,7 +39,13 @@ RUN echo "Start Installing..." \
         libmagic1 \
         libzbar0 \
         iputils-ping \
-    && DEBIAN_FRONTEND=noninteractive TZ=Asia/Shanghai apt-get install --no-install-recommends -y tzdata \
+    # && apt-get install --no-install-recommends -y tzdata \
+    && apt-get install -y tzdata \
+    # 设置时区为 Asia/Shanghai
+    && ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && echo "Asia/Shanghai" > /etc/timezone \
+    && dpkg-reconfigure --frontend noninteractive tzdata \
+    # 清理缓存以减小镜像体积
     && apt-get clean all \
     && rm -rf /var/lib/apt/lists/*
 
