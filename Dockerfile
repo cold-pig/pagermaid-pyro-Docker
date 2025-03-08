@@ -36,6 +36,7 @@ RUN echo "Start Installing..." \
         libmagic1 \
         libzbar0 \
         iputils-ping \
+        tzdata \
     && apt-get clean all
 
 ## 升级pip
