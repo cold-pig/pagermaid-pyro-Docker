@@ -36,8 +36,9 @@ RUN echo "Start Installing..." \
         libmagic1 \
         libzbar0 \
         iputils-ping \
-        tzdata \
-    && apt-get clean all
+    && DEBIAN_FRONTEND=noninteractive TZ=Asia/Shanghai apt-get install --no-install-recommends -y tzdata \
+    && apt-get clean all \
+    && rm -rf /var/lib/apt/lists/*
 
 ## 升级pip
 RUN python3 -m pip install --upgrade pip
